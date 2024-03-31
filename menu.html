@@ -9,6 +9,36 @@
 			/* Schrijf hier gewoon je CSS voor dit component */
 
 			/* Hint: kijk eens naar :target */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box	;
+			}
+			nav:target {
+				position: fixed;
+				top: 0;
+				background-color: var(--green);
+				width: 18rem;
+				height: 100vh;
+			}
+			nav ul {
+				list-style: none;
+			}
+			nav a {
+				display: inline-block;
+				width: 100%;
+				padding: 1rem;
+
+				font-weight: bold;
+				text-decoration: none;
+			}
+			nav a:has(svg) {
+				text-align: right;
+			}
+			nav ul li a:hover {
+				color: var(--green);
+				background-color: var(--blue);
+			}
 		</style>
 		<script type="module">
 			/* Schrijf hier eventueel je client-side JavaScript */
@@ -48,7 +78,14 @@
 			<p>Suspendisse malesuada, nulla eget iaculis fermentum, libero dolor vestibulum urna, ut auctor dolor diam ut dolor. Nullam mollis congue luctus. Fusce nulla dolor, faucibus nec volutpat eget, consequat quis nisl. Cras id diam efficitur, congue lectus ac, vulputate leo. Morbi odio velit, finibus id ornare sit amet, luctus ut eros. Fusce fringilla eu diam quis tempor. Proin pretium purus a fringilla semper. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin lorem diam, laoreet at lectus quis, lobortis tempor tortor. Vivamus semper, ex convallis iaculis suscipit, risus augue bibendum sapien, nec volutpat lacus quam finibus arcu. Nunc non consectetur eros, eu viverra metus. Aliquam nisl risus, condimentum et sapien id, rutrum interdum odio. Nulla facilisi. Ut ac egestas quam.</p>
 		</main>
 
-		<nav id="mobielMenu">
+		<nav class="fdnd-nav" id="mobielMenu">
+			<a href="">
+				<svg viewBox="0 0 32 32" width="32" height="32">
+					<title>Sluiten</title>
+					<path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"></path>
+				</svg>
+			</a>
+
 			<ul>
 				<li><a href="index.html">Home</a></li>
 				<li><a href="faq.html">Veelgestelde vragen</a></li>
@@ -64,12 +101,7 @@
 		
 
 		<!-- Dit is eventueel het 'Sluiten' icoon -->
-		<a href="">
-			<svg viewBox="0 0 32 32" width="32" height="32">
-				<title>Sluiten</title>
-				<path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"></path>
-			</svg>
-		</a>
+		
 		
 
 	</body>
