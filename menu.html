@@ -47,19 +47,51 @@
 				color: var(--green);
 				background-color: var(--blue);
 			}
+
+			/* hierdoor krijgt de body een donkere overlay als het menu zochtbaar is */
+			.active .overlay {
+				width: 100vw;
+				height: 100vh;
+				background: rgb(0 0 0 / 71%);
+				position: absolute;
+			}
 		</style>
 		<script type="module">
 			/* Schrijf hier eventueel je client-side JavaScript */
 
 			/* Hint: dit component kan volledig met CSS, maar met JS kun je 'm helemaal afmaken */
+			var menuKnop = document.getElementById("menuKnop");
+			var main = document.querySelector('main');
+			var overlay = document.querySelector(".overlay");
+
+			var closeKnop = document.querySelector('.close');
+
+
+			menuKnop.addEventListener('click', bodyDarker);
+
+			function bodyDarker() {
+				console.log('klikt op menu > body darker')
+
+				main.classList.toggle('active')
+			}
+
+			closeKnop.addEventListener('click', bodyLighter);
+		
+			function bodyLighter() {
+				console.log('klikt op close > body lighter')
+
+				main.classList.remove('active')
+			}
+
 		</script>
 	</head>
 	<body>
 		<main>
+			<div class="overlay"></div>
 			<h1>Mobiel menu</h1>
 			
 			<!-- Hint: Wat heb je nodig, als je op een klein scherm naar het menu wilt? -->
-			<a class="fdnd-button" href="#mobielMenu">Menu</a>
+			<a class="fdnd-button" id="menuKnop" href="#mobielMenu">Menu</a>
 
 			<!-- <details open>
 				<summary>Demo video</summary>
@@ -87,7 +119,7 @@
 		</main>
 
 		<nav class="fdnd-nav" id="mobielMenu">
-			<a href="#">
+			<a class="close" href="#">
 				<svg viewBox="0 0 32 32" width="32" height="32">
 					<title>Sluiten</title>
 					<path d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z"></path>
