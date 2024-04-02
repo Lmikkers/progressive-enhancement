@@ -35,19 +35,20 @@
 				font-weight: bold;
 				padding: 1.15rem;
 				border: unset;
-				border-bottom: 1px solid var(--blue);
 			}
 			.tabs a:hover {
 				text-decoration: underline;
 			}
-			ul.tabs a:active,
-			.tabs a[href]:target {
-				background-color: red;
+
+			.tabs a.active {
+				background-color: #fff;
 				border: 1px solid var(--blue);
 				border-bottom: 0;
 				border-radius: 10px 10px 0px 0px;
+				padding-bottom: 19.1px;
 			}
 			
+
 
 			div {
 				width: 100%;
@@ -64,6 +65,27 @@
 		</style>
 		<script type="module">
 			/* Schrijf hier eventueel je client-side JavaScript */
+
+			// zorgt ervoor dat je JavaScript alleen wordt uitgevoerd nadat alle HTML-content van de pagina is geladen
+			document.addEventListener("DOMContentLoaded", function() {
+
+				var tabLinks = document.querySelectorAll(".tabs a");
+
+				tabLinks.forEach(function(tabLink) {
+
+					tabLink.addEventListener("click", function(event) {
+						// Verwijder de active-klasse van alle tablinks
+						tabLinks.forEach(function(link) {
+							link.classList.remove("active");
+						});
+
+						// Voeg de active-klasse toe aan de geklikte tablink
+						tabLink.classList.add("active");
+					});
+
+				});
+			});
+
 		</script>
 	</head>
 	<body>
@@ -73,7 +95,7 @@
 
 		<!-- Content -->
 		<ul class="fdnd-nav tabs">		
-			<li><a href="#docenten">Docenten</a></li>
+			<li><a class="active" href="#docenten">Docenten</a></li>
 			<li><a href="#sprints">Sprints</a></li>
 			<li><a href="#Gedragscriteria">Gedragscriteria</a></li>
 			<li><a href="#openAvond">Open avond</a></li>
